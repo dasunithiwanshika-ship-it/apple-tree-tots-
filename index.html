@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple Tree Tots | Premium Preschool Management System</title>
+    <title>Apple Tree Tots | Premium Preschool & Learning Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -124,16 +124,6 @@
         .btn-tertiary:hover {
             background: var(--gothic);
             color: white;
-        }
-
-        .btn-danger {
-            background: var(--bittersweet);
-            color: white;
-        }
-
-        .btn-success {
-            background: var(--neptune);
-            color: var(--plantation);
         }
 
         /* Header Styles */
@@ -327,6 +317,129 @@
 
         .feature-card p {
             color: var(--text-light);
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--plantation);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            background: linear-gradient(45deg, var(--plantation), var(--gothic));
+            height: 400px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(40, 71, 83, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1530041539828-114de669390e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.8;
+        }
+
+        /* Programs Section */
+        .programs {
+            background: var(--light-gray);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(40, 71, 83, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--plantation), var(--sea-buckthorn), var(--gothic));
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-card h3 {
+            color: var(--plantation);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .program-card .age {
+            color: var(--gothic);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: rgba(142, 193, 195, 0.2);
+            border-radius: 20px;
+        }
+
+        .program-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .program-card li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .program-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--sea-buckthorn);
+            font-weight: bold;
         }
 
         /* Registration Section */
@@ -532,106 +645,142 @@
             color: var(--plantation);
         }
 
-        /* Admin Panel Styles */
-        .admin-panel {
-            background: var(--light-gray);
-            min-height: 100vh;
-            padding-top: 80px;
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--plantation) 0%, var(--gothic) 100%);
+            color: white;
         }
 
-        .admin-header {
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-detail i {
+            font-size: 1.2rem;
+            color: var(--sea-buckthorn);
+            width: 20px;
+        }
+
+        .phone-number {
+            margin: 2rem 0;
+        }
+
+        .phone-number a {
+            font-size: 2rem;
+            color: var(--sea-buckthorn);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .phone-number a:hover {
+            color: white;
+        }
+
+        .contact-map {
+            height: 400px;
+            background: #ddd;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
             background: var(--plantation);
             color: white;
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(40, 71, 83, 0.2);
+            padding: 3rem 0 1.5rem;
         }
 
-        .admin-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .admin-nav ul {
-            display: flex;
-            list-style: none;
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-        }
-
-        .admin-nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .admin-nav a:hover,
-        .admin-nav a.active {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .admin-content {
-            padding: 2rem 0;
-        }
-
-        .admin-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(40, 71, 83, 0.08);
             margin-bottom: 2rem;
         }
 
-        .admin-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        .admin-table th,
-        .admin-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .admin-table th {
-            background: var(--light-gray);
-            font-weight: 600;
-            color: var(--plantation);
-        }
-
-        .status-pending {
-            background: rgba(248, 158, 63, 0.1);
+        .footer-column h3 {
             color: var(--sea-buckthorn);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
         }
 
-        .status-approved {
-            background: rgba(142, 193, 195, 0.1);
-            color: var(--neptune);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
+        .footer-column ul {
+            list-style: none;
         }
 
-        .action-buttons {
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--sea-buckthorn);
+        }
+
+        .social-links {
             display: flex;
-            gap: 0.5rem;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
-        /* Modal Styles */
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--sea-buckthorn);
+            color: var(--plantation);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Login Modal */
         .modal {
             display: none;
             position: fixed;
@@ -654,11 +803,9 @@
             border-radius: 15px;
             padding: 2.5rem;
             width: 90%;
-            max-width: 500px;
+            max-width: 450px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
         }
 
         .close-modal {
@@ -678,39 +825,6 @@
             color: var(--plantation);
         }
 
-        .credentials-display {
-            background: var(--light-gray);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-            border-left: 4px solid var(--sea-buckthorn);
-        }
-
-        .credential-item {
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .credential-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .credential-label {
-            font-weight: 600;
-            color: var(--plantation);
-        }
-
-        .credential-value {
-            font-family: monospace;
-            background: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        /* Login Modal */
         .login-form .form-group {
             margin-bottom: 1.5rem;
         }
@@ -732,55 +846,11 @@
             color: var(--plantation);
         }
 
-        /* Parent Dashboard */
-        .parent-dashboard {
-            background: var(--light-gray);
-            min-height: 100vh;
-            padding-top: 80px;
-        }
-
-        .dashboard-header {
-            background: var(--plantation);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(40, 71, 83, 0.2);
-        }
-
-        .dashboard-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .child-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-        }
-
-        .child-avatar {
-            width: 40px;
-            height: 40px;
-            background: var(--sea-buckthorn);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--plantation);
-            font-weight: bold;
-        }
-
         /* Responsive Design */
         @media (max-width: 992px) {
-            .registration-content {
+            .about-content,
+            .registration-content,
+            .contact-content {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
@@ -863,19 +933,6 @@
             .section-padding {
                 padding: 4rem 0;
             }
-
-            .admin-table {
-                display: block;
-                overflow-x: auto;
-            }
-
-            .dashboard-tabs {
-                flex-direction: column;
-            }
-
-            .dashboard-tab {
-                text-align: center;
-            }
         }
 
         @media (max-width: 576px) {
@@ -910,692 +967,471 @@
                 text-align: center;
             }
 
-            .action-buttons {
+            .dashboard-tabs {
                 flex-direction: column;
+            }
+
+            .dashboard-tab {
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Main Website -->
-    <div id="mainWebsite">
-        <!-- Header -->
-        <header id="header">
-            <div class="container">
-                <a href="#" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-apple-alt"></i>
-                    </div>
-                    <div class="logo-text">
-                        <div class="logo-line1">APPLE TREE</div>
-                        <div class="logo-line2">TOTS</div>
-                        <div class="logo-line3">PRESCHOOL</div>
-                    </div>
-                </a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-line1">APPLE TREE</div>
+                    <div class="logo-line2">TOTS</div>
+                    <div class="logo-line3">PRESCHOOL</div>
+                </div>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <button class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
                 </button>
-                <nav id="mainNav">
-                    <button class="close-menu" id="closeMenu">
-                        <i class="fas fa-times"></i>
-                    </button>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#registration">Admissions</a></li>
+                    <li><a href="#dashboard">Parent Portal</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="btn" id="loginBtn">Parent Login</a></li>
+                </ul>
+            </nav>
+            <div class="nav-overlay" id="navOverlay"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Nurturing Young Minds Through Holistic Education</h1>
+                <p>Where children blossom through Montessori principles and nature-based learning in a caring, stimulating environment</p>
+                <div class="hero-buttons">
+                    <a href="#registration" class="btn">Enroll Today</a>
+                    <a href="#contact" class="btn btn-secondary">Schedule a Tour</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section-padding">
+        <div class="container">
+            <h2 class="section-title">Why Choose Apple Tree Tots?</h2>
+            <p class="section-subtitle">We provide a nurturing environment where children can explore, learn, and grow at their own pace</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Safe & Nurturing</h3>
+                    <p>Secure environment with caring, qualified teachers who prioritize your child's wellbeing</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Quality Education</h3>
+                    <p>AMI Montessori certified with innovative HEI Method for comprehensive development</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Nature-Based</h3>
+                    <p>Outdoor learning spaces and nature-inspired activities for holistic growth</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Progress Tracking</h3>
+                    <p>Parent dashboard to monitor your child's development and daily activities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Apple Tree Tots</h2>
+                    <p>Founded with a vision to create a nurturing space where children can grow, explore, and discover their potential through the perfect blend of structured learning and creative freedom.</p>
+                    <p>Our experienced educators are passionate about early childhood development and are trained in both AMI Montessori and HEI Method approaches.</p>
+                    <p>We believe every child is unique and deserves an education that celebrates their individuality while building strong foundations for lifelong learning.</p>
+                    <a href="#contact" class="btn">Learn More About Us</a>
+                </div>
+                <div class="about-image">
+                    <!-- Image would go here -->
+                    <span>Our Learning Environment</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs section-padding" id="programs">
+        <div class="container">
+            <h2 class="section-title">Our Programs</h2>
+            <p class="section-subtitle">Age-appropriate programs designed for optimal development at every stage</p>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <h3>Toddler Program</h3>
+                    <p class="age">Ages 2-3 years</p>
+                    <p>Focus on independence, language development, and social skills through guided play and exploration</p>
                     <ul>
-                        <li><a href="#home" class="active">Home</a></li>
+                        <li>Practical life activities</li>
+                        <li>Sensorial development</li>
+                        <li>Early language skills</li>
+                        <li>Social interaction</li>
+                    </ul>
+                </div>
+                <div class="program-card">
+                    <h3>Preschool Program</h3>
+                    <p class="age">Ages 3-4 years</p>
+                    <p>Building foundational academic skills while fostering creativity and emotional intelligence</p>
+                    <ul>
+                        <li>Mathematics foundation</li>
+                        <li>Language development</li>
+                        <li>Cultural studies</li>
+                        <li>Creative expression</li>
+                    </ul>
+                </div>
+                <div class="program-card">
+                    <h3>Pre-K Program</h3>
+                    <p class="age">Ages 4-5 years</p>
+                    <p>Comprehensive preparation for kindergarten with advanced Montessori materials and activities</p>
+                    <ul>
+                        <li>Advanced literacy</li>
+                        <li>Mathematical concepts</li>
+                        <li>Scientific exploration</li>
+                        <li>Leadership skills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration section-padding" id="registration">
+        <div class="container">
+            <h2 class="section-title">Admissions Process</h2>
+            <p class="section-subtitle">Join our preschool family with our streamlined registration and approval system</p>
+            <div class="registration-content">
+                <div class="registration-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Submit Registration Form</h3>
+                            <p>Complete our online registration with your child's information.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Admin Approval</h3>
+                            <p>Our admin team reviews your application and approves enrollment.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Receive Login Credentials</h3>
+                            <p>You'll get an email with your parent portal username and password.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Access Parent Dashboard</h3>
+                            <p>Monitor your child's progress, activities, and school updates.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="registration-form">
+                    <h3>Registration Form</h3>
+                    <p style="color: #666; margin-bottom: 1.5rem; font-size: 0.9rem;">Fill out this form to begin the enrollment process. Our admin will review and contact you.</p>
+                    
+                    <form id="registrationForm">
+                        <div id="formStatus" class="form-status"></div>
+                        
+                        <div class="form-group">
+                            <label for="parentName">Parent Name *</label>
+                            <input type="text" id="parentName" name="parentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="childName">Child's Name *</label>
+                            <input type="text" id="childName" name="childName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="childAge">Child's Age *</label>
+                            <select id="childAge" name="childAge" required>
+                                <option value="">Select Age</option>
+                                <option value="2">2 years</option>
+                                <option value="3">3 years</option>
+                                <option value="4">4 years</option>
+                                <option value="5">5 years</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="programInterest">Program Interest *</label>
+                            <select id="programInterest" name="programInterest" required>
+                                <option value="">Select Program</option>
+                                <option value="toddler">Toddler Program (2-3 yrs)</option>
+                                <option value="preschool">Preschool Program (3-4 yrs)</option>
+                                <option value="prek">Pre-K Program (4-5 yrs)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Information</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Any specific requirements or questions..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <span id="submitText">Submit Registration</span>
+                            <div id="submitSpinner" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Processing...
+                            </div>
+                        </button>
+                    </form>
+                    
+                    <div style="margin-top: 1rem; text-align: center;">
+                        <p style="font-size: 0.8rem; color: #888;">
+                            <i class="fas fa-shield-alt"></i> Your information is secure and will never be shared with third parties.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview Section -->
+    <section class="dashboard-preview section-padding" id="dashboard">
+        <div class="container">
+            <h2 class="section-title">Parent Dashboard</h2>
+            <p class="section-subtitle">Monitor your child's progress and school activities through our secure parent portal</p>
+            
+            <div class="dashboard-tabs">
+                <button class="dashboard-tab active" data-tab="overview">Overview</button>
+                <button class="dashboard-tab" data-tab="progress">Progress</button>
+                <button class="dashboard-tab" data-tab="activities">Activities</button>
+                <button class="dashboard-tab" data-tab="messages">Messages</button>
+            </div>
+            
+            <div class="dashboard-content">
+                <div class="dashboard-panel active" id="overview-panel">
+                    <h3>Welcome to Your Parent Dashboard</h3>
+                    <p>Here you can track your child's development and stay connected with our preschool.</p>
+                    
+                    <div class="performance-metrics">
+                        <div class="metric-card">
+                            <div class="metric-value">95%</div>
+                            <div class="metric-label">Attendance</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">A</div>
+                            <div class="metric-label">Social Skills</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">B+</div>
+                            <div class="metric-label">Cognitive Development</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">4.5/5</div>
+                            <div class="metric-label">Teacher Rating</div>
+                        </div>
+                    </div>
+                    
+                    <h4 style="margin-top: 2rem;">Recent Updates</h4>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div>
+                                <strong>Art Project Completed</strong>
+                                <div style="font-size: 0.9rem; color: var(--text-light);">Today at 10:30 AM</div>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div>
+                                <strong>New Reading Milestone</strong>
+                                <div style="font-size: 0.9rem; color: var(--text-light);">Yesterday</div>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div>
+                                <strong>Lunch Report</strong>
+                                <div style="font-size: 0.9rem; color: var(--text-light);">Nov 24, 2023</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="dashboard-panel" id="progress-panel">
+                    <h3>Development Progress</h3>
+                    <p>Track your child's growth across key developmental areas.</p>
+                    <!-- Progress charts and details would go here -->
+                    <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px; text-align: center; margin-top: 2rem;">
+                        <i class="fas fa-chart-bar" style="font-size: 3rem; color: var(--gothic); margin-bottom: 1rem;"></i>
+                        <p>Detailed progress charts and reports available in the full dashboard</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-panel" id="activities-panel">
+                    <h3>Daily Activities</h3>
+                    <p>See what your child is learning and doing each day.</p>
+                    <!-- Activity details would go here -->
+                    <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px; text-align: center; margin-top: 2rem;">
+                        <i class="fas fa-clipboard-list" style="font-size: 3rem; color: var(--gothic); margin-bottom: 1rem;"></i>
+                        <p>Daily activity logs and photos available in the full dashboard</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-panel" id="messages-panel">
+                    <h3>Messages & Communication</h3>
+                    <p>Communicate with teachers and receive important updates.</p>
+                    <!-- Message system would go here -->
+                    <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px; text-align: center; margin-top: 2rem;">
+                        <i class="fas fa-comments" style="font-size: 3rem; color: var(--gothic); margin-bottom: 1rem;"></i>
+                        <p>Direct messaging with teachers available in the full dashboard</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p>Already have an account? <a href="#" class="btn btn-tertiary" id="dashboardLoginBtn">Access Full Dashboard</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Contact Us</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">We'd love to welcome your child to our preschool family</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions about our programs or want to schedule a tour? We're here to help!</p>
+                    
+                    <div class="phone-number">
+                        <a href="tel:0743431488">(074) 343 1488</a>
+                    </div>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Friday: 7:30 AM - 5:30 PM</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@appletreetots.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Education Lane, Learning City</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <!-- Map would be embedded here -->
+                    <div style="width: 100%; height: 100%; background: #eee; display: flex; align-items: center; justify-content: center; color: #777;">
+                        Interactive Map Location
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo-text">
+                        <div class="logo-line1" style="font-size: 1rem; color: var(--sea-buckthorn);">APPLE TREE</div>
+                        <div class="logo-line2" style="font-size: 1.4rem; color: white;">TOTS</div>
+                        <div class="logo-line3" style="font-size: 0.9rem; color: var(--neptune);">PRESCHOOL</div>
+                    </div>
+                    <p style="margin-top: 1rem; color: #ccc;">Nurturing young minds through holistic education since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#programs">Programs</a></li>
                         <li><a href="#registration">Admissions</a></li>
                         <li><a href="#dashboard">Parent Portal</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="#" class="btn" id="loginBtn">Parent Login</a></li>
-                        <li><a href="#" class="btn btn-secondary" id="adminLoginBtn">Admin Login</a></li>
                     </ul>
-                </nav>
-                <div class="nav-overlay" id="navOverlay"></div>
-            </div>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Nurturing Young Minds Through Holistic Education</h1>
-                    <p>Where children blossom through Montessori principles and nature-based learning in a caring, stimulating environment</p>
-                    <div class="hero-buttons">
-                        <a href="#registration" class="btn">Enroll Today</a>
-                        <a href="#contact" class="btn btn-secondary">Schedule a Tour</a>
-                    </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="features section-padding">
-            <div class="container">
-                <h2 class="section-title">Why Choose Apple Tree Tots?</h2>
-                <p class="section-subtitle">We provide a nurturing environment where children can explore, learn, and grow at their own pace</p>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h3>Safe & Nurturing</h3>
-                        <p>Secure environment with caring, qualified teachers who prioritize your child's wellbeing</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3>Quality Education</h3>
-                        <p>AMI Montessori certified with innovative HEI Method for comprehensive development</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3>Nature-Based</h3>
-                        <p>Outdoor learning spaces and nature-inspired activities for holistic growth</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Progress Tracking</h3>
-                        <p>Parent dashboard to monitor your child's development and daily activities</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Registration Section -->
-        <section class="registration section-padding" id="registration">
-            <div class="container">
-                <h2 class="section-title">Admissions Process</h2>
-                <p class="section-subtitle">Join our preschool family with our streamlined registration and approval system</p>
-                <div class="registration-content">
-                    <div class="registration-steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h3>Submit Registration Form</h3>
-                                <p>Complete our online registration with your child's information.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h3>Admin Approval</h3>
-                                <p>Our admin team reviews your application and approves enrollment.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h3>Receive Login Credentials</h3>
-                                <p>You'll get an email with your parent portal username and password.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h3>Access Parent Dashboard</h3>
-                                <p>Monitor your child's progress, activities, and school updates.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="registration-form">
-                        <h3>Registration Form</h3>
-                        <p style="color: #666; margin-bottom: 1.5rem; font-size: 0.9rem;">Fill out this form to begin the enrollment process. Our admin will review and contact you.</p>
-                        
-                        <form id="registrationForm">
-                            <div id="formStatus" class="form-status"></div>
-                            
-                            <div class="form-group">
-                                <label for="parentName">Parent Name *</label>
-                                <input type="text" id="parentName" name="parentName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="childName">Child's Name *</label>
-                                <input type="text" id="childName" name="childName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="childAge">Child's Age *</label>
-                                <select id="childAge" name="childAge" required>
-                                    <option value="">Select Age</option>
-                                    <option value="2">2 years</option>
-                                    <option value="3">3 years</option>
-                                    <option value="4">4 years</option>
-                                    <option value="5">5 years</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="programInterest">Program Interest *</label>
-                                <select id="programInterest" name="programInterest" required>
-                                    <option value="">Select Program</option>
-                                    <option value="toddler">Toddler Program (2-3 yrs)</option>
-                                    <option value="preschool">Preschool Program (3-4 yrs)</option>
-                                    <option value="prek">Pre-K Program (4-5 yrs)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Additional Information</label>
-                                <textarea id="message" name="message" rows="3" placeholder="Any specific requirements or questions..."></textarea>
-                            </div>
-                            <button type="submit" class="btn" style="width: 100%;">
-                                <span id="submitText">Submit Registration</span>
-                                <div id="submitSpinner" style="display: none;">
-                                    <i class="fas fa-spinner fa-spin"></i> Processing...
-                                </div>
-                            </button>
-                        </form>
-                        
-                        <div style="margin-top: 1rem; text-align: center;">
-                            <p style="font-size: 0.8rem; color: #888;">
-                                <i class="fas fa-shield-alt"></i> Your information is secure and will never be shared with third parties.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Dashboard Preview Section -->
-        <section class="dashboard-preview section-padding" id="dashboard">
-            <div class="container">
-                <h2 class="section-title">Parent Dashboard</h2>
-                <p class="section-subtitle">Monitor your child's progress and school activities through our secure parent portal</p>
-                
-                <div class="dashboard-tabs">
-                    <button class="dashboard-tab active" data-tab="overview">Overview</button>
-                    <button class="dashboard-tab" data-tab="progress">Progress</button>
-                    <button class="dashboard-tab" data-tab="activities">Activities</button>
-                    <button class="dashboard-tab" data-tab="messages">Messages</button>
-                </div>
-                
-                <div class="dashboard-content">
-                    <div class="dashboard-panel active" id="overview-panel">
-                        <h3>Welcome to Your Parent Dashboard</h3>
-                        <p>Here you can track your child's development and stay connected with our preschool.</p>
-                        
-                        <div class="performance-metrics">
-                            <div class="metric-card">
-                                <div class="metric-value">95%</div>
-                                <div class="metric-label">Attendance</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">A</div>
-                                <div class="metric-label">Social Skills</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">B+</div>
-                                <div class="metric-label">Cognitive Development</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">4.5/5</div>
-                                <div class="metric-label">Teacher Rating</div>
-                            </div>
-                        </div>
-                        
-                        <h4 style="margin-top: 2rem;">Recent Updates</h4>
-                        <ul class="activity-list">
-                            <li class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-palette"></i>
-                                </div>
-                                <div>
-                                    <strong>Art Project Completed</strong>
-                                    <div style="font-size: 0.9rem; color: var(--text-light);">Today at 10:30 AM</div>
-                                </div>
-                            </li>
-                            <li class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-book"></i>
-                                </div>
-                                <div>
-                                    <strong>New Reading Milestone</strong>
-                                    <div style="font-size: 0.9rem; color: var(--text-light);">Yesterday</div>
-                                </div>
-                            </li>
-                            <li class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-utensils"></i>
-                                </div>
-                                <div>
-                                    <strong>Lunch Report</strong>
-                                    <div style="font-size: 0.9rem; color: var(--text-light);">Nov 24, 2023</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="dashboard-panel" id="progress-panel">
-                        <h3>Development Progress</h3>
-                        <p>Track your child's growth across key developmental areas.</p>
-                        <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px; text-align: center; margin-top: 2rem;">
-                            <i class="fas fa-chart-bar" style="font-size: 3rem; color: var(--gothic); margin-bottom: 1rem;"></i>
-                            <p>Detailed progress charts and reports available in the full dashboard</p>
-                        </div>
-                    </div>
-                    
-                    <div class="dashboard-panel" id="activities-panel">
-                        <h3>Daily Activities</h3>
-                        <p>See what your child is learning and doing each day.</p>
-                        <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px; text-align: center; margin-top: 2rem;">
-                            <i class="fas fa-clipboard-list" style="font-size: 3rem; color: var(--gothic); margin-bottom: 1rem;"></i>
-                            <p>Daily activity logs and photos available in the full dashboard</p>
-                        </div>
-                    </div>
-                    
-                    <div class="dashboard-panel" id="messages-panel">
-                        <h3>Messages & Communication</h3>
-                        <p>Communicate with teachers and receive important updates.</p>
-                        <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px; text-align: center; margin-top: 2rem;">
-                            <i class="fas fa-comments" style="font-size: 3rem; color: var(--gothic); margin-bottom: 1rem;"></i>
-                            <p>Direct messaging with teachers available in the full dashboard</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 2rem;">
-                    <p>Already have an account? <a href="#" class="btn btn-tertiary" id="dashboardLoginBtn">Access Full Dashboard</a></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact section-padding" id="contact">
-            <div class="container">
-                <h2 class="section-title" style="color: white;">Contact Us</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">We'd love to welcome your child to our preschool family</p>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h2>Get In Touch</h2>
-                        <p>Have questions about our programs or want to schedule a tour? We're here to help!</p>
-                        
-                        <div class="phone-number">
-                            <a href="tel:0743431488">(074) 343 1488</a>
-                        </div>
-                        
-                        <div class="contact-details">
-                            <div class="contact-detail">
-                                <i class="fas fa-clock"></i>
-                                <span>Monday - Friday: 7:30 AM - 5:30 PM</span>
-                            </div>
-                            <div class="contact-detail">
-                                <i class="fas fa-envelope"></i>
-                                <span>info@appletreetots.com</span>
-                            </div>
-                            <div class="contact-detail">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>123 Education Lane, Learning City</span>
-                            </div>
-                        </div>
-                        
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <div class="contact-map">
-                        <div style="width: 100%; height: 100%; background: #eee; display: flex; align-items: center; justify-content: center; color: #777;">
-                            Interactive Map Location
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-column">
-                        <div class="logo-text">
-                            <div class="logo-line1" style="font-size: 1rem; color: var(--sea-buckthorn);">APPLE TREE</div>
-                            <div class="logo-line2" style="font-size: 1.4rem; color: white;">TOTS</div>
-                            <div class="logo-line3" style="font-size: 0.9rem; color: var(--neptune);">PRESCHOOL</div>
-                        </div>
-                        <p style="margin-top: 1rem; color: #ccc;">Nurturing young minds through holistic education since 2010.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#programs">Programs</a></li>
-                            <li><a href="#registration">Admissions</a></li>
-                            <li><a href="#dashboard">Parent Portal</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Programs</h3>
-                        <ul>
-                            <li><a href="#">Toddler Program (2-3 yrs)</a></li>
-                            <li><a href="#">Preschool Program (3-4 yrs)</a></li>
-                            <li><a href="#">Pre-K Program (4-5 yrs)</a></li>
-                            <li><a href="#">Summer Camp</a></li>
-                            <li><a href="#">Extended Care</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Contact Info</h3>
-                        <ul>
-                            <li><i class="fas fa-map-marker-alt" style="color: var(--sea-buckthorn);"></i> 123 Education Lane, Learning City</li>
-                            <li><i class="fas fa-phone" style="color: var(--sea-buckthorn);"></i> (074) 343 1488</li>
-                            <li><i class="fas fa-envelope" style="color: var(--sea-buckthorn);"></i> info@appletreetots.com</li>
-                            <li><i class="fas fa-clock" style="color: var(--sea-buckthorn);"></i> Mon-Fri: 7:30AM - 5:30PM</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2023 Apple Tree Tots Preschool. All rights reserved. | <a href="#" style="color: #aaa;">Privacy Policy</a> | <a href="#" style="color: #aaa;">Terms of Service</a></p>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Admin Panel (Hidden by default) -->
-    <div id="adminPanel" class="admin-panel" style="display: none;">
-        <div class="admin-header">
-            <div class="container">
-                <div class="admin-nav">
-                    <a href="#" class="logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-apple-alt"></i>
-                        </div>
-                        <div class="logo-text">
-                            <div class="logo-line1">APPLE TREE</div>
-                            <div class="logo-line2">TOTS</div>
-                            <div class="logo-line3">ADMIN</div>
-                        </div>
-                    </a>
+                <div class="footer-column">
+                    <h3>Programs</h3>
                     <ul>
-                        <li><a href="#" class="active" data-admin-tab="registrations">Registrations</a></li>
-                        <li><a href="#" data-admin-tab="students">Students</a></li>
-                        <li><a href="#" data-admin-tab="reports">Reports</a></li>
-                        <li><a href="#" id="adminLogoutBtn">Logout</a></li>
+                        <li><a href="#">Toddler Program (2-3 yrs)</a></li>
+                        <li><a href="#">Preschool Program (3-4 yrs)</a></li>
+                        <li><a href="#">Pre-K Program (4-5 yrs)</a></li>
+                        <li><a href="#">Summer Camp</a></li>
+                        <li><a href="#">Extended Care</a></li>
                     </ul>
                 </div>
-            </div>
-        </div>
-
-        <div class="container admin-content">
-            <div class="admin-card" id="registrations-tab">
-                <h2>Pending Registrations</h2>
-                <p>Review and approve new student registrations.</p>
-                
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>Parent Name</th>
-                            <th>Child Name</th>
-                            <th>Age</th>
-                            <th>Program</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="pendingRegistrations">
-                        <!-- Registrations will be populated by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="admin-card" id="students-tab" style="display: none;">
-                <h2>Approved Students</h2>
-                <p>Manage currently enrolled students.</p>
-                
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>Child Name</th>
-                            <th>Parent Name</th>
-                            <th>Age</th>
-                            <th>Program</th>
-                            <th>Enrollment Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="approvedStudents">
-                        <!-- Approved students will be populated by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="admin-card" id="reports-tab" style="display: none;">
-                <h2>Reports & Analytics</h2>
-                <p>View school performance metrics and reports.</p>
-                
-                <div class="performance-metrics">
-                    <div class="metric-card">
-                        <div class="metric-value" id="totalStudents">0</div>
-                        <div class="metric-label">Total Students</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value" id="pendingApprovals">0</div>
-                        <div class="metric-label">Pending Approvals</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">94%</div>
-                        <div class="metric-label">Attendance Rate</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">4.7/5</div>
-                        <div class="metric-label">Parent Satisfaction</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Parent Dashboard (Hidden by default) -->
-    <div id="parentDashboard" class="parent-dashboard" style="display: none;">
-        <div class="dashboard-header">
-            <div class="container">
-                <div class="dashboard-nav">
-                    <a href="#" class="logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-apple-alt"></i>
-                        </div>
-                        <div class="logo-text">
-                            <div class="logo-line1">PARENT</div>
-                            <div class="logo-line2">PORTAL</div>
-                        </div>
-                    </a>
-                    <div class="child-info">
-                        <div class="child-avatar" id="childAvatar">E</div>
-                        <div>
-                            <div id="childDisplayName">Emily Johnson</div>
-                            <div style="font-size: 0.8rem; opacity: 0.8;">Toddler Program</div>
-                        </div>
-                    </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
                     <ul>
-                        <li><a href="#" id="parentLogoutBtn">Logout</a></li>
+                        <li><i class="fas fa-map-marker-alt" style="color: var(--sea-buckthorn);"></i> 123 Education Lane, Learning City</li>
+                        <li><i class="fas fa-phone" style="color: var(--sea-buckthorn);"></i> (074) 343 1488</li>
+                        <li><i class="fas fa-envelope" style="color: var(--sea-buckthorn);"></i> info@appletreetots.com</li>
+                        <li><i class="fas fa-clock" style="color: var(--sea-buckthorn);"></i> Mon-Fri: 7:30AM - 5:30PM</li>
                     </ul>
                 </div>
             </div>
-        </div>
-
-        <div class="container admin-content">
-            <div class="admin-card">
-                <h2>Welcome to Your Parent Dashboard</h2>
-                <p>Here you can monitor your child's progress and stay connected with our preschool.</p>
-                
-                <div class="dashboard-tabs">
-                    <button class="dashboard-tab active" data-tab="overview">Overview</button>
-                    <button class="dashboard-tab" data-tab="progress">Progress</button>
-                    <button class="dashboard-tab" data-tab="activities">Activities</button>
-                    <button class="dashboard-tab" data-tab="messages">Messages</button>
-                </div>
-                
-                <div class="dashboard-content">
-                    <div class="dashboard-panel active" id="parent-overview-panel">
-                        <h3>Child Overview</h3>
-                        
-                        <div class="performance-metrics">
-                            <div class="metric-card">
-                                <div class="metric-value">95%</div>
-                                <div class="metric-label">Attendance</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">A</div>
-                                <div class="metric-label">Social Skills</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">B+</div>
-                                <div class="metric-label">Cognitive Development</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">4.5/5</div>
-                                <div class="metric-label">Teacher Rating</div>
-                            </div>
-                        </div>
-                        
-                        <h4 style="margin-top: 2rem;">Recent Updates</h4>
-                        <ul class="activity-list">
-                            <li class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-palette"></i>
-                                </div>
-                                <div>
-                                    <strong>Art Project Completed</strong>
-                                    <div style="font-size: 0.9rem; color: var(--text-light);">Today at 10:30 AM</div>
-                                    <p>Emily created a beautiful painting using finger paints. She showed great creativity!</p>
-                                </div>
-                            </li>
-                            <li class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-book"></i>
-                                </div>
-                                <div>
-                                    <strong>New Reading Milestone</strong>
-                                    <div style="font-size: 0.9rem; color: var(--text-light);">Yesterday</div>
-                                    <p>Emily recognized 15 new words during reading time today.</p>
-                                </div>
-                            </li>
-                            <li class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-utensils"></i>
-                                </div>
-                                <div>
-                                    <strong>Lunch Report</strong>
-                                    <div style="font-size: 0.9rem; color: var(--text-light);">Nov 24, 2023</div>
-                                    <p>Emily ate all her vegetables today and tried a new fruit salad.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="dashboard-panel" id="parent-progress-panel">
-                        <h3>Development Progress</h3>
-                        <p>Track your child's growth across key developmental areas.</p>
-                        
-                        <div style="margin-top: 2rem;">
-                            <h4>Social & Emotional Development</h4>
-                            <div style="background: var(--light-gray); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                    <span>Sharing with peers</span>
-                                    <span>Excellent</span>
-                                </div>
-                                <div style="height: 10px; background: #e2e8f0; border-radius: 5px; overflow: hidden;">
-                                    <div style="height: 100%; width: 90%; background: var(--neptune);"></div>
-                                </div>
-                            </div>
-                            
-                            <div style="background: var(--light-gray); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                    <span>Following instructions</span>
-                                    <span>Good</span>
-                                </div>
-                                <div style="height: 10px; background: #e2e8f0; border-radius: 5px; overflow: hidden;">
-                                    <div style="height: 100%; width: 75%; background: var(--sea-buckthorn);"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="dashboard-panel" id="parent-activities-panel">
-                        <h3>Daily Activities</h3>
-                        <p>See what your child is learning and doing each day.</p>
-                        
-                        <div style="margin-top: 2rem;">
-                            <h4>Today's Schedule</h4>
-                            <ul class="activity-list">
-                                <li class="activity-item">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-sun"></i>
-                                    </div>
-                                    <div>
-                                        <strong>Morning Circle (8:30-9:00 AM)</strong>
-                                        <p>Calendar, weather, and sharing time</p>
-                                    </div>
-                                </li>
-                                <li class="activity-item">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-puzzle-piece"></i>
-                                    </div>
-                                    <div>
-                                        <strong>Learning Centers (9:00-10:30 AM)</strong>
-                                        <p>Rotating through math, language, and practical life activities</p>
-                                    </div>
-                                </li>
-                                <li class="activity-item">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-apple-alt"></i>
-                                    </div>
-                                    <div>
-                                        <strong>Snack Time (10:30-11:00 AM)</strong>
-                                        <p>Healthy snacks and social interaction</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="dashboard-panel" id="parent-messages-panel">
-                        <h3>Messages & Communication</h3>
-                        <p>Communicate with teachers and receive important updates.</p>
-                        
-                        <div style="margin-top: 2rem;">
-                            <div class="form-group">
-                                <label for="messageToTeacher">Message to Teacher</label>
-                                <textarea id="messageToTeacher" rows="3" placeholder="Type your message here..."></textarea>
-                            </div>
-                            <button class="btn">Send Message</button>
-                        </div>
-                        
-                        <div style="margin-top: 2rem;">
-                            <h4>Recent Messages</h4>
-                            <div style="background: var(--light-gray); padding: 1.5rem; border-radius: 10px; margin-top: 1rem;">
-                                <div style="display: flex; justify-content: space-between;">
-                                    <strong>From: Teacher Sarah</strong>
-                                    <span style="font-size: 0.9rem; color: var(--text-light);">Nov 25, 2023</span>
-                                </div>
-                                <p style="margin-top: 0.5rem;">Emily had a wonderful day today! She was very helpful during clean-up time and shared her toys beautifully with friends.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Apple Tree Tots Preschool. All rights reserved. | <a href="#" style="color: #aaa;">Privacy Policy</a> | <a href="#" style="color: #aaa;">Terms of Service</a></p>
             </div>
         </div>
-    </div>
+    </footer>
 
     <!-- Login Modal -->
     <div class="modal" id="loginModal">
@@ -1603,7 +1439,7 @@
             <button class="close-modal" id="closeModal">
                 <i class="fas fa-times"></i>
             </button>
-            <h2 class="modal-title" id="loginModalTitle">Parent Portal Login</h2>
+            <h2 class="modal-title">Parent Portal Login</h2>
             <form class="login-form" id="loginForm">
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -1619,73 +1455,15 @@
                     </label>
                     <a href="#">Forgot password?</a>
                 </div>
-                <button type="submit" class="btn" style="width: 100%;" id="loginSubmitBtn">Login to Dashboard</button>
+                <button type="submit" class="btn" style="width: 100%;">Login to Dashboard</button>
             </form>
             <div style="text-align: center; margin-top: 1.5rem;">
-                <p id="loginFooterText">New parent? <a href="#registration" style="color: var(--gothic);">Register here</a></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Approval Modal -->
-    <div class="modal" id="approvalModal">
-        <div class="modal-content">
-            <button class="close-modal" id="closeApprovalModal">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2 class="modal-title">Approve Registration</h2>
-            
-            <div id="registrationDetails">
-                <!-- Registration details will be populated by JavaScript -->
-            </div>
-            
-            <div class="credentials-display">
-                <h4>Generated Login Credentials</h4>
-                <div class="credential-item">
-                    <span class="credential-label">Username:</span>
-                    <span class="credential-value" id="generatedUsername">parent_emily123</span>
-                </div>
-                <div class="credential-item">
-                    <span class="credential-label">Password:</span>
-                    <span class="credential-value" id="generatedPassword">AppleTree2023!</span>
-                </div>
-            </div>
-            
-            <p style="text-align: center; margin: 1.5rem 0; color: var(--text-light);">
-                These credentials will be sent to the parent's email address.
-            </p>
-            
-            <div style="display: flex; gap: 1rem;">
-                <button class="btn btn-success" id="confirmApproveBtn" style="flex: 1;">Approve & Send Credentials</button>
-                <button class="btn btn-secondary" id="cancelApproveBtn" style="flex: 1;">Cancel</button>
+                <p>New parent? <a href="#registration" style="color: var(--gothic);">Register here</a></p>
             </div>
         </div>
     </div>
 
     <script>
-        // Data Storage (In a real app, this would be a database)
-        let registrations = JSON.parse(localStorage.getItem('preschoolRegistrations')) || [];
-        let approvedStudents = JSON.parse(localStorage.getItem('approvedStudents')) || [];
-        let adminCredentials = { username: "admin", password: "admin123" };
-        let parentCredentials = JSON.parse(localStorage.getItem('parentCredentials')) || {};
-
-        // DOM Elements
-        const mainWebsite = document.getElementById('mainWebsite');
-        const adminPanel = document.getElementById('adminPanel');
-        const parentDashboard = document.getElementById('parentDashboard');
-        const loginModal = document.getElementById('loginModal');
-        const approvalModal = document.getElementById('approvalModal');
-        const pendingRegistrationsTable = document.getElementById('pendingRegistrations');
-        const approvedStudentsTable = document.getElementById('approvedStudents');
-        const totalStudentsElement = document.getElementById('totalStudents');
-        const pendingApprovalsElement = document.getElementById('pendingApprovals');
-
-        // Initialize the application
-        function initApp() {
-            updateAdminTables();
-            updateAdminMetrics();
-        }
-
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
@@ -1736,65 +1514,23 @@
                 
                 // Show corresponding panel
                 const tabId = tab.getAttribute('data-tab');
-                const panel = document.getElementById(`${tabId}-panel`) || 
-                             document.getElementById(`parent-${tabId}-panel`);
-                if (panel) panel.classList.add('active');
-            });
-        });
-
-        // Admin tabs functionality
-        const adminTabs = document.querySelectorAll('[data-admin-tab]');
-        adminTabs.forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                // Remove active class from all tabs
-                adminTabs.forEach(t => t.classList.remove('active'));
-                // Add active class to clicked tab
-                tab.classList.add('active');
-                
-                // Hide all tabs content
-                document.querySelectorAll('[id$="-tab"]').forEach(content => {
-                    content.style.display = 'none';
-                });
-                
-                // Show corresponding tab content
-                const tabId = tab.getAttribute('data-admin-tab');
-                document.getElementById(`${tabId}-tab`).style.display = 'block';
+                document.getElementById(`${tabId}-panel`).classList.add('active');
             });
         });
 
         // Login modal functionality
         const loginBtn = document.getElementById('loginBtn');
-        const adminLoginBtn = document.getElementById('adminLoginBtn');
         const dashboardLoginBtn = document.getElementById('dashboardLoginBtn');
+        const loginModal = document.getElementById('loginModal');
         const closeModal = document.getElementById('closeModal');
-        const loginForm = document.getElementById('loginForm');
-        const loginModalTitle = document.getElementById('loginModalTitle');
-        const loginSubmitBtn = document.getElementById('loginSubmitBtn');
-        const loginFooterText = document.getElementById('loginFooterText');
 
         loginBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            loginModalTitle.textContent = 'Parent Portal Login';
-            loginSubmitBtn.textContent = 'Login to Dashboard';
-            loginFooterText.innerHTML = 'New parent? <a href="#registration" style="color: var(--gothic);">Register here</a>';
-            loginModal.classList.add('active');
-        });
-
-        adminLoginBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            loginModalTitle.textContent = 'Admin Login';
-            loginSubmitBtn.textContent = 'Login to Admin Panel';
-            loginFooterText.innerHTML = 'Authorized personnel only';
             loginModal.classList.add('active');
         });
 
         dashboardLoginBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            loginModalTitle.textContent = 'Parent Portal Login';
-            loginSubmitBtn.textContent = 'Login to Dashboard';
-            loginFooterText.innerHTML = 'New parent? <a href="#registration" style="color: var(--gothic);">Register here</a>';
             loginModal.classList.add('active');
         });
 
@@ -1810,7 +1546,7 @@
         });
 
         // Registration form submission
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const submitBtn = this.querySelector('button[type="submit"]');
@@ -1824,26 +1560,9 @@
             submitBtn.disabled = true;
             formStatus.style.display = 'none';
             
-            // Get form data
-            const formData = {
-                id: Date.now().toString(),
-                parentName: document.getElementById('parentName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                childName: document.getElementById('childName').value,
-                childAge: document.getElementById('childAge').value,
-                programInterest: document.getElementById('programInterest').value,
-                message: document.getElementById('message').value,
-                status: 'pending',
-                date: new Date().toLocaleDateString()
-            };
-            
-            // Save registration
-            registrations.push(formData);
-            localStorage.setItem('preschoolRegistrations', JSON.stringify(registrations));
-            
-            // Success response
+            // Simulate form submission (in a real app, this would send to a server)
             setTimeout(() => {
+                // Success response
                 formStatus.textContent = 'Thank you! Your registration has been submitted. Our admin will review your application and contact you with login credentials within 24 hours.';
                 formStatus.className = 'form-status success';
                 formStatus.style.display = 'block';
@@ -1856,250 +1575,15 @@
                 submitText.style.display = 'block';
                 submitSpinner.style.display = 'none';
                 submitBtn.disabled = false;
-                
-                // Update admin metrics
-                updateAdminMetrics();
-            }, 1500);
+            }, 2000);
         });
 
         // Login form submission
-        loginForm.addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const isAdminLogin = loginModalTitle.textContent === 'Admin Login';
-            
-            if (isAdminLogin) {
-                // Admin login
-                if (username === adminCredentials.username && password === adminCredentials.password) {
-                    showAdminPanel();
-                    loginModal.classList.remove('active');
-                    this.reset();
-                } else {
-                    alert('Invalid admin credentials. Please try again.');
-                }
-            } else {
-                // Parent login
-                if (parentCredentials[username] && parentCredentials[username].password === password) {
-                    showParentDashboard(parentCredentials[username]);
-                    loginModal.classList.remove('active');
-                    this.reset();
-                } else {
-                    alert('Invalid parent credentials. Please check your username and password.');
-                }
-            }
+            alert('In a real application, this would authenticate and redirect to the full parent dashboard.');
+            loginModal.classList.remove('active');
         });
-
-        // Admin logout
-        document.getElementById('adminLogoutBtn').addEventListener('click', (e) => {
-            e.preventDefault();
-            showMainWebsite();
-        });
-
-        // Parent logout
-        document.getElementById('parentLogoutBtn').addEventListener('click', (e) => {
-            e.preventDefault();
-            showMainWebsite();
-        });
-
-        // Approval modal
-        const closeApprovalModal = document.getElementById('closeApprovalModal');
-        const confirmApproveBtn = document.getElementById('confirmApproveBtn');
-        const cancelApproveBtn = document.getElementById('cancelApproveBtn');
-
-        closeApprovalModal.addEventListener('click', () => {
-            approvalModal.classList.remove('active');
-        });
-
-        cancelApproveBtn.addEventListener('click', () => {
-            approvalModal.classList.remove('active');
-        });
-
-        // Show main website
-        function showMainWebsite() {
-            mainWebsite.style.display = 'block';
-            adminPanel.style.display = 'none';
-            parentDashboard.style.display = 'none';
-        }
-
-        // Show admin panel
-        function showAdminPanel() {
-            mainWebsite.style.display = 'none';
-            adminPanel.style.display = 'block';
-            parentDashboard.style.display = 'none';
-            updateAdminTables();
-            updateAdminMetrics();
-        }
-
-        // Show parent dashboard
-        function showParentDashboard(parentData) {
-            mainWebsite.style.display = 'none';
-            adminPanel.style.display = 'none';
-            parentDashboard.style.display = 'block';
-            
-            // Update child info
-            document.getElementById('childDisplayName').textContent = parentData.childName;
-            document.getElementById('childAvatar').textContent = parentData.childName.charAt(0);
-        }
-
-        // Update admin tables
-        function updateAdminTables() {
-            // Clear tables
-            pendingRegistrationsTable.innerHTML = '';
-            approvedStudentsTable.innerHTML = '';
-            
-            // Populate pending registrations
-            registrations.filter(reg => reg.status === 'pending').forEach(registration => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${registration.parentName}</td>
-                    <td>${registration.childName}</td>
-                    <td>${registration.childAge} years</td>
-                    <td>${registration.programInterest}</td>
-                    <td>${registration.date}</td>
-                    <td><span class="status-pending">Pending</span></td>
-                    <td>
-                        <div class="action-buttons">
-                            <button class="btn btn-success btn-approve" data-id="${registration.id}">Approve</button>
-                            <button class="btn btn-danger btn-reject" data-id="${registration.id}">Reject</button>
-                        </div>
-                    </td>
-                `;
-                pendingRegistrationsTable.appendChild(row);
-            });
-            
-            // Populate approved students
-            approvedStudents.forEach(student => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${student.childName}</td>
-                    <td>${student.parentName}</td>
-                    <td>${student.childAge} years</td>
-                    <td>${student.programInterest}</td>
-                    <td>${student.approvalDate}</td>
-                    <td><span class="status-approved">Active</span></td>
-                `;
-                approvedStudentsTable.appendChild(row);
-            });
-            
-            // Add event listeners to approve buttons
-            document.querySelectorAll('.btn-approve').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const regId = this.getAttribute('data-id');
-                    showApprovalModal(regId);
-                });
-            });
-            
-            // Add event listeners to reject buttons
-            document.querySelectorAll('.btn-reject').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const regId = this.getAttribute('data-id');
-                    if (confirm('Are you sure you want to reject this registration?')) {
-                        rejectRegistration(regId);
-                    }
-                });
-            });
-        }
-
-        // Update admin metrics
-        function updateAdminMetrics() {
-            totalStudentsElement.textContent = approvedStudents.length;
-            pendingApprovalsElement.textContent = registrations.filter(reg => reg.status === 'pending').length;
-        }
-
-        // Show approval modal
-        function showApprovalModal(regId) {
-            const registration = registrations.find(reg => reg.id === regId);
-            if (!registration) return;
-            
-            // Populate registration details
-            document.getElementById('registrationDetails').innerHTML = `
-                <div style="margin-bottom: 1.5rem;">
-                    <h4>Registration Details</h4>
-                    <p><strong>Parent:</strong> ${registration.parentName}</p>
-                    <p><strong>Email:</strong> ${registration.email}</p>
-                    <p><strong>Phone:</strong> ${registration.phone}</p>
-                    <p><strong>Child:</strong> ${registration.childName} (${registration.childAge} years)</p>
-                    <p><strong>Program:</strong> ${registration.programInterest}</p>
-                    ${registration.message ? `<p><strong>Message:</strong> ${registration.message}</p>` : ''}
-                </div>
-            `;
-            
-            // Generate credentials
-            const username = `parent_${registration.childName.toLowerCase().replace(/\s/g, '')}${Math.floor(Math.random() * 1000)}`;
-            const password = `AppleTree${new Date().getFullYear()}!`;
-            
-            document.getElementById('generatedUsername').textContent = username;
-            document.getElementById('generatedPassword').textContent = password;
-            
-            // Set up approve button
-            confirmApproveBtn.onclick = () => {
-                approveRegistration(regId, username, password);
-                approvalModal.classList.remove('active');
-            };
-            
-            approvalModal.classList.add('active');
-        }
-
-        // Approve registration
-        function approveRegistration(regId, username, password) {
-            const registrationIndex = registrations.findIndex(reg => reg.id === regId);
-            if (registrationIndex === -1) return;
-            
-            const registration = registrations[registrationIndex];
-            
-            // Update registration status
-            registration.status = 'approved';
-            registration.approvalDate = new Date().toLocaleDateString();
-            registration.username = username;
-            
-            // Save to approved students
-            const approvedStudent = {
-                ...registration,
-                approvalDate: new Date().toLocaleDateString()
-            };
-            approvedStudents.push(approvedStudent);
-            
-            // Save parent credentials
-            parentCredentials[username] = {
-                password: password,
-                parentName: registration.parentName,
-                childName: registration.childName,
-                childAge: registration.childAge,
-                program: registration.programInterest
-            };
-            
-            // Save to localStorage
-            localStorage.setItem('preschoolRegistrations', JSON.stringify(registrations));
-            localStorage.setItem('approvedStudents', JSON.stringify(approvedStudents));
-            localStorage.setItem('parentCredentials', JSON.stringify(parentCredentials));
-            
-            // Update UI
-            updateAdminTables();
-            updateAdminMetrics();
-            
-            // In a real application, you would send an email here
-            alert(`Registration approved! Credentials sent to ${registration.email}\n\nUsername: ${username}\nPassword: ${password}`);
-        }
-
-        // Reject registration
-        function rejectRegistration(regId) {
-            const registrationIndex = registrations.findIndex(reg => reg.id === regId);
-            if (registrationIndex === -1) return;
-            
-            // Remove registration
-            registrations.splice(registrationIndex, 1);
-            
-            // Save to localStorage
-            localStorage.setItem('preschoolRegistrations', JSON.stringify(registrations));
-            
-            // Update UI
-            updateAdminTables();
-            updateAdminMetrics();
-            
-            alert('Registration rejected and removed from the system.');
-        }
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2123,9 +1607,6 @@
                 }
             });
         });
-
-        // Initialize the application
-        initApp();
     </script>
 </body>
 </html>
