@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Tree Tots Preschool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2c5530;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        .logo-line1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffd700;
+            letter-spacing: 1px;
+        }
+
+        .logo-line2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+            margin: 0.2rem 0;
+        }
+
+        .logo-line3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #a8e6a3;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #a8e6a3;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c5530"/><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%233a7c40" opacity="0.3"/></svg>');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Curriculum Section */
+        .curriculum {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+        }
+
+        .curriculum h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #2c5530;
+            font-weight: 600;
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .curriculum-item {
+            background: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .curriculum-item h3 {
+            color: #2c5530;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .method {
+            margin-bottom: 2.5rem;
+        }
+
+        .method h4 {
+            color: #3a7c40;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .association {
+            font-weight: 500;
+            color: #2c5530;
+            margin-bottom: 1rem;
+        }
+
+        .method ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .method li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .method li:before {
+            content: "•";
+            color: #3a7c40;
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            text-align: center;
+            background-color: #2c5530;
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .phone-number a {
+            font-size: 2rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .phone-number a:hover {
+            color: #a8e6a3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a3c1f;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 1rem;
+            }
+            
+            .logo-line1 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-line2 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-line3 {
+                font-size: 1.2rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .curriculum-item {
+                padding: 1.5rem;
+            }
+            
+            .phone-number a {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-line1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-line2 {
+                font-size: 1.6rem;
+            }
+            
+            .logo-line3 {
+                font-size: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-line1">APPLE TREE</div>
+                <div class="logo-line2">TOTS</div>
+                <div class="logo-line3">PRESCHOOL</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#curriculum">Our Curriculum</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h2>Nurturing Young Minds Through Holistic Education</h2>
+                <p>Where children blossom through Montessori principles and nature-based learning</p>
+            </div>
+        </section>
+
+        <section id="curriculum" class="curriculum">
+            <div class="container">
+                <h2>OUR CURRICULUM</h2>
+                <div class="curriculum-grid">
+                    <div class="curriculum-item">
+                        <h3>AMI MONTESSORI + HEI METHOD</h3>
+                        <div class="method">
+                            <h4>AMI MONTESSORI</h4>
+                            <p class="subtitle">Developed by Dr. Maria Montessori and internationally recognized by AMI</p>
+                            <p class="association">Association Montessori Internationale</p>
+                            <ul>
+                                <li>Focuses on hands-on learning, independence, and self-paced discovery</li>
+                                <li>Helps children develop practical life skills, sensory awareness, and critical thinking</li>
+                            </ul>
+                        </div>
+                        <div class="method">
+                            <h4>HEI METHOD (HOLISTIC EARLY INTERVENTION)</h4>
+                            <ul>
+                                <li>A nature-based, holistic approach to learning</li>
+                                <li>Encourages emotional, social, and creative development</li>
+                                <li>Uses play, storytelling, art, and outdoor exploration to nurture well-rounded, confident children</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>CALL US FOR MORE INFO</h2>
+                <div class="phone-number">
+                    <a href="tel:0743431488">(074) 343 1488</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Apple Tree Tots Preschool. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
