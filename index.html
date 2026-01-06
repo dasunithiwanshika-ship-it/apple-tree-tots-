@@ -15,53 +15,59 @@
         }
 
         :root {
-            --primary-dark: #1a3650;
-            --primary: #284753;
-            --primary-light: #3a6575;
-            --accent: #f89e3f;
+            --primary-dark: #1a472a;
+            --primary: #2a5d3a;
+            --primary-light: #3a7d4a;
+            --accent: #ff9e4a;
             --accent-dark: #e68a2e;
-            --secondary: #6494a1;
-            --light: #f8f9fa;
-            --light-accent: #fcd0a8;
-            --text-dark: #2c3e50;
-            --text-light: #6c757d;
+            --accent-light: #ffd8b3;
+            --secondary: #5a9c7d;
+            --light: #f8fff8;
+            --light-accent: #e8f4e8;
+            --text-dark: #2c3e2c;
+            --text-light: #6c857c;
             --success: #28a745;
             --warning: #ffc107;
             --danger: #dc3545;
             --white: #ffffff;
-            --border: #e9ecef;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --border: #e9efe9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-dark);
             background-color: var(--white);
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5 {
             font-family: 'Playfair Display', serif;
             font-weight: 600;
             color: var(--primary-dark);
+            line-height: 1.3;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         .section-padding {
-            padding: 5rem 0;
+            padding: 6rem 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.75rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-dark);
             position: relative;
         }
@@ -71,8 +77,8 @@
             display: block;
             width: 80px;
             height: 4px;
-            background: var(--accent);
-            margin: 1rem auto;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            margin: 1.5rem auto;
             border-radius: 2px;
         }
 
@@ -80,30 +86,49 @@
             text-align: center;
             font-size: 1.2rem;
             color: var(--text-light);
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
 
         .btn {
             display: inline-block;
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: var(--white);
-            padding: 0.875rem 1.75rem;
+            padding: 1rem 2.25rem;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 50px;
             font-weight: 600;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
             box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 0;
         }
 
         .btn:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
         }
 
@@ -120,7 +145,7 @@
 
         .btn-outline {
             background: transparent;
-            border: 1px solid var(--primary);
+            border: 2px solid var(--primary);
             color: var(--primary);
         }
 
@@ -129,24 +154,54 @@
             color: var(--white);
         }
 
+        /* Elegant Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
         /* Header Styles */
         header {
             background: rgba(255, 255, 255, 0.98);
             color: var(--primary-dark);
-            padding: 1rem 0;
+            padding: 1.2rem 0;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
         }
 
         header.scrolled {
-            padding: 0.7rem 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+            padding: 0.8rem 0;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
         }
 
         header .container {
@@ -158,13 +213,14 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             text-decoration: none;
         }
 
-        .logo-icon {
-            font-size: 2rem;
-            color: var(--accent);
+        .logo-img {
+            height: 60px;
+            width: auto;
+            transition: var(--transition);
         }
 
         .logo-text {
@@ -172,7 +228,7 @@
         }
 
         .logo-line1 {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary-dark);
             letter-spacing: 1.5px;
@@ -181,15 +237,19 @@
         }
 
         .logo-line2 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--primary-dark);
             line-height: 1;
-            margin: 0.1rem 0;
+            margin: 0.2rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .logo-line3 {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: var(--secondary);
             letter-spacing: 1.5px;
@@ -200,7 +260,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 2rem;
             align-items: center;
         }
 
@@ -208,7 +268,7 @@
             color: var(--primary-dark);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             padding: 0.5rem 0;
             position: relative;
             font-size: 0.95rem;
@@ -237,47 +297,68 @@
             font-size: 1.5rem;
             color: var(--primary-dark);
             cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--accent);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(26, 54, 80, 0.9) 0%, rgba(40, 71, 83, 0.85) 100%), url('https://images.unsplash.com/photo-1516627145497-ae69578f5d26?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), 
+                        url('https://images.unsplash.com/photo-1533003505519-6a9b8e9b3ce2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            color: var(--white);
+            background-attachment: fixed;
+            color: var(--text-dark);
             text-align: center;
-            padding: 12rem 0 8rem;
+            padding: 14rem 0 10rem;
             position: relative;
             overflow: hidden;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 158, 74, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(90, 156, 125, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            color: var(--white);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            color: var(--primary-dark);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             margin-bottom: 2.5rem;
             opacity: 0.9;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 300;
+            line-height: 1.6;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -289,70 +370,108 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
 
         .feature-card {
             background: var(--white);
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
+            padding: 3rem 2.5rem;
+            border-radius: var(--radius);
             text-align: center;
             box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 4px solid var(--accent);
+            transition: var(--transition);
+            border-top: 5px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--light-accent) 0%, transparent 70%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
             box-shadow: var(--shadow-lg);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--accent);
             margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .feature-card h3 {
             color: var(--primary-dark);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .feature-card p {
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
         }
 
         /* About Section */
         .about {
             background: var(--white);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: var(--light);
+            z-index: 0;
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .about-text h2 {
             color: var(--primary-dark);
             margin-bottom: 1.5rem;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
         }
 
         .about-text p {
             margin-bottom: 1.5rem;
             color: var(--text-light);
-            font-size: 1.05rem;
-            line-height: 1.7;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
         .about-image {
-            height: 400px;
-            border-radius: 8px;
+            height: 500px;
+            border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow-lg);
             position: relative;
@@ -362,28 +481,49 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
         }
 
         /* Programs Section */
         .programs {
-            background: var(--light);
+            background: linear-gradient(135deg, var(--light) 0%, var(--light-accent) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .programs::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+            opacity: 0.3;
         }
 
         .programs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .program-card {
             background: var(--white);
-            border-radius: 8px;
-            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            padding: 3rem 2.5rem;
             text-align: center;
             box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--border);
         }
 
         .program-card::before {
@@ -392,30 +532,30 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: var(--accent);
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
         }
 
         .program-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
             box-shadow: var(--shadow-lg);
         }
 
         .program-card h3 {
             color: var(--primary-dark);
             margin-bottom: 1rem;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
         }
 
         .program-card .age {
             color: var(--secondary);
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: inline-block;
-            padding: 0.3rem 1rem;
-            background: rgba(100, 148, 161, 0.1);
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(90, 156, 125, 0.1);
+            border-radius: 50px;
+            font-size: 0.95rem;
         }
 
         .program-card ul {
@@ -429,6 +569,7 @@
             padding-left: 1.5rem;
             position: relative;
             color: var(--text-light);
+            line-height: 1.6;
         }
 
         .program-card li::before {
@@ -447,53 +588,72 @@
         .registration-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            gap: 5rem;
+            align-items: start;
         }
 
         .registration-steps {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .step {
             display: flex;
             gap: 1.5rem;
             align-items: flex-start;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+
+        .step:hover {
+            transform: translateX(10px);
+            background: var(--light-accent);
         }
 
         .step-number {
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             flex-shrink: 0;
+            box-shadow: var(--shadow);
         }
 
         .step-content h3 {
             color: var(--primary-dark);
             margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         .step-content p {
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .registration-form {
-            background: var(--light);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
             border: 1px solid var(--border);
+            position: sticky;
+            top: 120px;
+        }
+
+        .registration-form h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
         }
 
         .form-group {
@@ -512,12 +672,12 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 0.875rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
+            padding: 1rem 1.2rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            transition: var(--transition);
             background: var(--white);
         }
 
@@ -526,32 +686,48 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(248, 158, 63, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 158, 74, 0.1);
         }
 
         /* Parent Portal Section */
         .portal {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            opacity: 0.05;
         }
 
         .portal-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .portal-info h2 {
             color: var(--white);
             margin-bottom: 1.5rem;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
         }
 
         .portal-info p {
             margin-bottom: 2rem;
             opacity: 0.9;
-            line-height: 1.7;
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
 
         .portal-features {
@@ -561,20 +737,35 @@
         .portal-feature {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .portal-feature:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
         }
 
         .portal-feature i {
-            font-size: 1.2rem;
-            color: var(--light-accent);
-            width: 24px;
+            font-size: 1.5rem;
+            color: var(--accent);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .portal-login {
             background: rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 8px;
+            padding: 3rem;
+            border-radius: var(--radius);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -583,7 +774,7 @@
             color: var(--white);
             margin-bottom: 1.5rem;
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
 
         /* Dashboard Preview */
@@ -594,32 +785,39 @@
         .dashboard-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
         .dashboard-tab {
             background: var(--white);
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             color: var(--primary-dark);
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
+            padding: 1rem 2rem;
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1rem;
         }
 
         .dashboard-tab.active {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: var(--white);
+            border-color: transparent;
+            box-shadow: var(--shadow);
+        }
+
+        .dashboard-tab:hover:not(.active) {
             border-color: var(--accent);
+            color: var(--accent);
         }
 
         .dashboard-content {
             background: var(--white);
-            border-radius: 8px;
-            padding: 2rem;
+            border-radius: var(--radius);
+            padding: 3rem;
             box-shadow: var(--shadow);
             border: 1px solid var(--border);
         }
@@ -630,30 +828,37 @@
 
         .dashboard-panel.active {
             display: block;
+            animation: fadeInUp 0.5s ease-out;
         }
 
         .performance-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .performance-card {
             background: var(--light);
-            border-radius: 6px;
-            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            padding: 2rem;
             text-align: center;
-            border-left: 4px solid var(--accent);
+            border-left: 5px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        .performance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
         }
 
         .performance-card h4 {
             margin-bottom: 1rem;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--primary-dark);
         }
 
         .performance-value {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: var(--accent);
             margin-bottom: 0.5rem;
@@ -662,29 +867,36 @@
         .activity-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .activity-card {
             background: var(--light);
-            border-radius: 6px;
-            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            padding: 2rem;
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            border-left: 4px solid var(--secondary);
+            align-items: flex-start;
+            gap: 1.5rem;
+            border-left: 5px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
         }
 
         .activity-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--secondary);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary-light));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: var(--white);
+            flex-shrink: 0;
         }
 
         /* Testimonials Section */
@@ -694,21 +906,27 @@
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
         }
 
         .testimonial-card {
             background: var(--light);
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
+            padding: 3rem 2.5rem;
+            border-radius: var(--radius);
             box-shadow: var(--shadow);
             position: relative;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .testimonial-card::before {
             content: '"';
-            font-size: 5rem;
+            font-size: 6rem;
             color: var(--accent);
             position: absolute;
             top: -10px;
@@ -720,11 +938,12 @@
 
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             color: var(--text-light);
             position: relative;
             z-index: 1;
-            line-height: 1.7;
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
 
         .testimonial-author {
@@ -737,25 +956,26 @@
 
         /* Contact Section */
         .contact {
-            background: var(--light);
+            background: linear-gradient(135deg, var(--light) 0%, var(--light-accent) 100%);
         }
 
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
         }
 
         .contact-info h2 {
             color: var(--primary-dark);
             margin-bottom: 1.5rem;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
         }
 
         .contact-info p {
             margin-bottom: 2rem;
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
 
         .contact-details {
@@ -765,59 +985,123 @@
         .contact-detail {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        .contact-detail:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow);
         }
 
         .contact-detail i {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: var(--accent);
-            width: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--light-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .phone-number {
-            margin: 2rem 0;
+            margin: 3rem 0;
+            text-align: center;
         }
 
         .phone-number a {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--primary-dark);
             text-decoration: none;
             font-weight: 700;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
 
         .phone-number a:hover {
             color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
         }
 
         .contact-map {
-            height: 400px;
-            background: var(--border);
-            border-radius: 8px;
+            height: 500px;
+            background: var(--white);
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .contact-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 158, 74, 0.1), rgba(90, 156, 125, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Footer */
         footer {
             background: var(--primary-dark);
             color: var(--white);
-            padding: 3rem 0 1.5rem;
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-column h3 {
             color: var(--light-accent);
             margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
         }
 
         .footer-column ul {
@@ -825,47 +1109,51 @@
         }
 
         .footer-column ul li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .footer-column ul li a {
             color: #ccc;
             text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
+            transition: var(--transition);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .footer-column ul li a:hover {
             color: var(--light-accent);
+            transform: translateX(5px);
         }
 
         .social-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
 
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             background: rgba(255, 255, 255, 0.1);
             color: var(--white);
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            border-radius: 50%;
+            transition: var(--transition);
         }
 
         .social-links a:hover {
             background: var(--accent);
             color: var(--primary-dark);
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.1);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 1.5rem;
+            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #aaa;
             font-size: 0.9rem;
@@ -873,12 +1161,13 @@
 
         /* Form Status Styles */
         .form-status {
-            padding: 1rem;
-            border-radius: 4px;
-            margin: 1rem 0;
+            padding: 1.2rem;
+            border-radius: var(--radius-sm);
+            margin: 1.5rem 0;
             text-align: center;
             display: none;
             font-weight: 500;
+            animation: fadeInUp 0.5s ease-out;
         }
         
         .form-status.success {
@@ -903,10 +1192,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
             z-index: 2000;
             align-items: center;
             justify-content: center;
+            animation: fadeInUp 0.3s ease-out;
         }
 
         .modal.active {
@@ -915,42 +1205,65 @@
 
         .modal-content {
             background: var(--white);
-            border-radius: 8px;
-            padding: 2rem;
+            border-radius: var(--radius);
+            padding: 3rem;
             width: 90%;
             max-width: 500px;
             box-shadow: var(--shadow-lg);
             position: relative;
+            animation: fadeInUp 0.5s ease-out;
         }
 
         .modal-close {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 1.5rem;
+            right: 1.5rem;
             background: none;
             border: none;
             font-size: 1.5rem;
             color: var(--text-light);
             cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
         }
 
         .modal h3 {
             margin-bottom: 1rem;
             color: var(--primary-dark);
+            font-size: 1.8rem;
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 100%;
+                padding: 0 32px;
+            }
+        }
+
         @media (max-width: 992px) {
             .about-content,
             .registration-content,
             .portal-content,
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 4rem;
             }
 
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
+            }
+
+            .registration-form {
+                position: static;
+            }
+
+            .contact-map {
+                height: 400px;
             }
         }
 
@@ -963,13 +1276,13 @@
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 280px;
+                width: 320px;
                 height: 100vh;
                 background: var(--white);
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-                transition: right 0.3s ease;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                transition: right 0.4s ease;
                 z-index: 1001;
-                padding: 2rem;
+                padding: 3rem;
             }
 
             nav.active {
@@ -978,8 +1291,8 @@
 
             nav ul {
                 flex-direction: column;
-                gap: 1.5rem;
-                margin-top: 3rem;
+                gap: 2rem;
+                margin-top: 4rem;
                 align-items: flex-start;
             }
 
@@ -992,6 +1305,7 @@
                 background: rgba(0,0,0,0.5);
                 z-index: 1000;
                 display: none;
+                backdrop-filter: blur(5px);
             }
 
             .nav-overlay.active {
@@ -1000,8 +1314,8 @@
 
             .close-menu {
                 position: absolute;
-                top: 1rem;
-                right: 1rem;
+                top: 2rem;
+                right: 2rem;
                 background: none;
                 border: none;
                 font-size: 1.5rem;
@@ -1010,61 +1324,92 @@
             }
 
             .hero {
-                padding: 10rem 0 6rem;
+                padding: 12rem 0 8rem;
+                background-attachment: scroll;
             }
 
             .hero h1 {
-                font-size: 2.3rem;
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .section-padding {
+                padding: 5rem 0;
+            }
+
+            .logo-img {
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .logo-line1 {
+                font-size: 0.9rem;
+            }
+            
+            .logo-line2 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-line3 {
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
             }
 
             .hero p {
                 font-size: 1.1rem;
             }
 
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .section-padding {
-                padding: 4rem 0;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .logo-line1 {
-                font-size: 0.9rem;
-            }
-            
-            .logo-line2 {
-                font-size: 1.4rem;
-            }
-            
-            .logo-line3 {
-                font-size: 0.8rem;
-            }
-            
-            .logo-icon {
-                font-size: 1.8rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 1rem;
             }
 
             .btn {
                 width: 100%;
-                max-width: 250px;
+                max-width: 280px;
                 text-align: center;
             }
 
             .registration-form,
-            .portal-login {
+            .portal-login,
+            .modal-content {
                 padding: 2rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .features-grid,
+            .programs-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-tab {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .phone-number a {
+                font-size: 1.5rem;
+                padding: 0.8rem 1.5rem;
             }
         }
     </style>
@@ -1074,8 +1419,15 @@
     <header id="header">
         <div class="container">
             <a href="#" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-apple-alt"></i>
+                <!-- Using a tree/apple tree logo representation -->
+                <div class="logo-img">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" fill="#2a5d3a"/>
+                        <path d="M30 10C30 10 20 20 20 30C20 40 25 45 30 50C35 45 40 40 40 30C40 20 30 10 30 10Z" fill="#ff9e4a"/>
+                        <circle cx="25" cy="25" r="3" fill="#ffffff"/>
+                        <circle cx="35" cy="25" r="3" fill="#ffffff"/>
+                        <path d="M30 35C30 35 28 38 30 40C32 38 30 35 30 35Z" fill="#ffffff"/>
+                    </svg>
                 </div>
                 <div class="logo-text">
                     <div class="logo-line1">APPLE TREE</div>
@@ -1107,9 +1459,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
-                <h1>Excellence in Early Childhood Education</h1>
-                <p>Where young minds flourish through our unique blend of AMI Montessori principles and innovative HEI Method approaches</p>
+            <div class="hero-content animate-fade-in-up">
+                <h1>Where Young Minds Blossom & Grow</h1>
+                <p>Nurturing curious minds through our unique blend of AMI Montessori principles and innovative HEI Method approaches in a loving, nature-inspired environment</p>
                 <div class="hero-buttons">
                     <a href="#registration" class="btn">Begin Enrollment</a>
                     <a href="#contact" class="btn btn-secondary">Schedule a Tour</a>
@@ -1122,35 +1474,35 @@
     <section class="features section-padding">
         <div class="container">
             <h2 class="section-title">Why Apple Tree Tots?</h2>
-            <p class="section-subtitle">Our commitment to excellence sets us apart in early childhood education</p>
+            <p class="section-subtitle">Our holistic approach to early childhood education creates a foundation for lifelong learning and success</p>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card animate-fade-in-up">
                     <div class="feature-icon">
                         <i class="fas fa-award"></i>
                     </div>
-                    <h3>AMI Accredited</h3>
-                    <p>Fully accredited by Association Montessori Internationale, ensuring the highest standards of Montessori education</p>
+                    <h3>AMI Accredited Excellence</h3>
+                    <p>Fully accredited by Association Montessori Internationale, ensuring the highest standards of authentic Montessori education with certified guides.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card animate-fade-in-up" style="animation-delay: 0.1s;">
                     <div class="feature-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3>Expert Educators</h3>
-                    <p>Our certified teachers bring passion and expertise to create engaging, developmentally appropriate learning experiences</p>
+                    <h3>Master Educators</h3>
+                    <p>Our certified teachers bring passion, expertise, and warmth to create engaging, developmentally appropriate learning experiences.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card animate-fade-in-up" style="animation-delay: 0.2s;">
                     <div class="feature-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <h3>Holistic Approach</h3>
-                    <p>HEI Method integration ensures emotional, social, and creative development alongside academic growth</p>
+                    <h3>Holistic Development</h3>
+                    <p>HEI Method integration ensures emotional intelligence, social skills, and creative expression alongside academic growth in our nature-inspired classrooms.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card animate-fade-in-up" style="animation-delay: 0.3s;">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Progress Tracking</h3>
-                    <p>Comprehensive parent portal with real-time updates on your child's development and achievements</p>
+                    <h3>Transparent Progress</h3>
+                    <p>Comprehensive parent portal with real-time updates, photos, and developmental tracking of your child's achievements and milestones.</p>
                 </div>
             </div>
         </div>
@@ -1160,15 +1512,15 @@
     <section class="about section-padding" id="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text animate-fade-in-up">
                     <h2>Our Educational Philosophy</h2>
                     <p>At Apple Tree Tots, we believe that the early years are fundamental in shaping a child's lifelong love of learning. Our approach combines the time-tested methods of AMI Montessori with contemporary insights from the HEI Holistic Early Intervention framework.</p>
-                    <p>We've created an environment where children feel safe to explore, confident to question, and empowered to discover their unique capabilities. Our classrooms are carefully prepared to encourage independence while fostering a sense of community.</p>
-                    <p>Our educators are not just teachers but guides who observe each child's individual needs and interests, providing appropriate materials and challenges at just the right moment in their development.</p>
+                    <p>We've created a nurturing environment where children feel safe to explore, confident to question, and empowered to discover their unique capabilities. Our light-filled classrooms are carefully prepared to encourage independence while fostering a sense of community and belonging.</p>
+                    <p>Our educators are not just teachers but compassionate guides who observe each child's individual needs and interests, providing appropriate materials and challenges at just the right moment in their developmental journey.</p>
                     <a href="#programs" class="btn">Explore Our Programs</a>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Preschool Classroom">
+                <div class="about-image animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Preschool Classroom with Children Learning">
                 </div>
             </div>
         </div>
@@ -1178,42 +1530,42 @@
     <section class="programs section-padding" id="programs">
         <div class="container">
             <h2 class="section-title">Our Educational Programs</h2>
-            <p class="section-subtitle">Age-appropriate curriculum designed to nurture development at every stage</p>
+            <p class="section-subtitle">Age-appropriate curriculum designed to nurture development at every stage of early childhood</p>
             <div class="programs-grid">
-                <div class="program-card">
-                    <h3>Toddler Program</h3>
+                <div class="program-card animate-fade-in-up">
+                    <h3>Seedlings Program</h3>
                     <p class="age">Ages 18 months - 3 years</p>
-                    <p>Building independence and foundational skills through purposeful work and play</p>
+                    <p>Building independence and foundational skills through purposeful work and play in a nurturing environment</p>
                     <ul>
-                        <li>Practical life activities</li>
-                        <li>Language development</li>
-                        <li>Sensorial exploration</li>
-                        <li>Social skills development</li>
-                        <li>Fine & gross motor skills</li>
+                        <li>Practical life activities & self-care skills</li>
+                        <li>Language development & vocabulary building</li>
+                        <li>Sensorial exploration of textures, sounds, colors</li>
+                        <li>Social skills development & emotional regulation</li>
+                        <li>Fine & gross motor skill refinement</li>
                     </ul>
                 </div>
-                <div class="program-card">
+                <div class="program-card animate-fade-in-up" style="animation-delay: 0.1s;">
                     <h3>Primary Program</h3>
                     <p class="age">Ages 3 - 6 years</p>
-                    <p>Comprehensive Montessori education fostering academic and personal growth</p>
+                    <p>Comprehensive Montessori education fostering academic excellence, personal growth, and social development</p>
                     <ul>
-                        <li>Mathematics & numeracy</li>
-                        <li>Language arts & literacy</li>
-                        <li>Cultural studies</li>
-                        <li>Scientific exploration</li>
-                        <li>Creative expression</li>
+                        <li>Mathematics & numeracy with concrete materials</li>
+                        <li>Language arts, phonics, and early literacy</li>
+                        <li>Cultural studies & global awareness</li>
+                        <li>Scientific exploration & nature studies</li>
+                        <li>Creative expression through art and music</li>
                     </ul>
                 </div>
-                <div class="program-card">
+                <div class="program-card animate-fade-in-up" style="animation-delay: 0.2s;">
                     <h3>Enrichment Programs</h3>
                     <p class="age">All Ages</p>
-                    <p>Specialized programs to enhance learning and development</p>
+                    <p>Specialized programs to enhance learning, creativity, and holistic development beyond the core curriculum</p>
                     <ul>
-                        <li>Music & movement</li>
-                        <li>Art appreciation</li>
-                        <li>Foreign language</li>
-                        <li>Yoga & mindfulness</li>
-                        <li>Gardening & nature</li>
+                        <li>Music & movement with rhythm instruments</li>
+                        <li>Art appreciation & creative expression</li>
+                        <li>Spanish language immersion</li>
+                        <li>Yoga, mindfulness & emotional intelligence</li>
+                        <li>Organic gardening & nature connection</li>
                     </ul>
                 </div>
             </div>
@@ -1224,60 +1576,60 @@
     <section class="registration section-padding" id="registration">
         <div class="container">
             <h2 class="section-title">Admissions Process</h2>
-            <p class="section-subtitle">Join our community of learners in four simple steps</p>
+            <p class="section-subtitle">Join our vibrant learning community in four simple, transparent steps</p>
             <div class="registration-content">
                 <div class="registration-steps">
-                    <div class="step">
+                    <div class="step animate-fade-in-up">
                         <div class="step-number">1</div>
                         <div class="step-content">
                             <h3>Submit Application</h3>
-                            <p>Complete our online registration form with your family and child information.</p>
+                            <p>Complete our online registration form with comprehensive family and child information to begin the journey.</p>
                         </div>
                     </div>
-                    <div class="step">
+                    <div class="step animate-fade-in-up" style="animation-delay: 0.1s;">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h3>Admin Review</h3>
-                            <p>Our admissions team reviews your application and verifies availability.</p>
+                            <h3>Personalized Tour</h3>
+                            <p>Schedule a private tour of our facilities and meet our teaching team to experience our environment firsthand.</p>
                         </div>
                     </div>
-                    <div class="step">
+                    <div class="step animate-fade-in-up" style="animation-delay: 0.2s;">
                         <div class="step-number">3</div>
                         <div class="step-content">
                             <h3>Credentials Issued</h3>
-                            <p>Upon approval, you'll receive unique login credentials via email for the parent portal.</p>
+                            <p>Upon approval, receive secure login credentials via email for exclusive access to our comprehensive parent portal.</p>
                         </div>
                     </div>
-                    <div class="step">
+                    <div class="step animate-fade-in-up" style="animation-delay: 0.3s;">
                         <div class="step-number">4</div>
                         <div class="step-content">
                             <h3>Complete Enrollment</h3>
-                            <p>Access the portal to complete forms, view orientation materials, and prepare for the first day.</p>
+                            <p>Access the portal to complete forms, view orientation materials, and prepare for your child's exciting first day.</p>
                         </div>
                     </div>
                 </div>
-                <div class="registration-form">
-                    <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Begin Your Journey</h3>
-                    <p style="color: var(--text-light); margin-bottom: 1.5rem; font-size: 0.95rem;">Submit your application today. Our team will review it and contact you within 2 business days.</p>
+                <div class="registration-form animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <h3>Begin Your Journey</h3>
+                    <p style="color: var(--text-light); margin-bottom: 1.5rem; font-size: 0.95rem;">Submit your application today. Our admissions team will review it personally and contact you within 2 business days.</p>
                     
                     <form id="registrationForm">
                         <div id="formStatus" class="form-status"></div>
                         
                         <div class="form-group">
                             <label for="parentName">Parent/Guardian Name *</label>
-                            <input type="text" id="parentName" name="parentName" required>
+                            <input type="text" id="parentName" name="parentName" required placeholder="Enter full name">
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890">
                         </div>
                         <div class="form-group">
                             <label for="childName">Child's Full Name *</label>
-                            <input type="text" id="childName" name="childName" required>
+                            <input type="text" id="childName" name="childName" required placeholder="Child's name">
                         </div>
                         <div class="form-group">
                             <label for="childDob">Child's Date of Birth *</label>
@@ -1287,7 +1639,7 @@
                             <label for="programInterest">Program Interest *</label>
                             <select id="programInterest" name="programInterest" required>
                                 <option value="">Select Program</option>
-                                <option value="toddler">Toddler Program (18 mos - 3 yrs)</option>
+                                <option value="toddler">Seedlings Program (18 mos - 3 yrs)</option>
                                 <option value="primary">Primary Program (3 - 6 yrs)</option>
                                 <option value="enrichment">Enrichment Programs</option>
                             </select>
@@ -1298,7 +1650,7 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Additional Information</label>
-                            <textarea id="message" name="message" rows="3" placeholder="Any specific needs, questions, or requirements..."></textarea>
+                            <textarea id="message" name="message" rows="3" placeholder="Any specific needs, questions, or requirements you'd like us to know about..."></textarea>
                         </div>
                         <div class="form-group">
                             <label>
@@ -1322,64 +1674,65 @@
     <section class="portal section-padding" id="portal">
         <div class="container">
             <div class="portal-content">
-                <div class="portal-info">
+                <div class="portal-info animate-fade-in-up">
                     <h2>Parent Portal</h2>
-                    <p>Our secure online portal provides real-time access to your child's educational journey. Once your application is approved, you'll receive unique login credentials to access these features:</p>
+                    <p>Our secure online portal provides real-time, transparent access to your child's educational journey. Once your application is approved, you'll receive unique login credentials to access these comprehensive features:</p>
                     
                     <div class="portal-features">
                         <div class="portal-feature">
                             <i class="fas fa-chart-line"></i>
                             <div>
                                 <h4>Progress Tracking</h4>
-                                <p>Monitor developmental milestones and academic progress</p>
+                                <p>Monitor developmental milestones, academic progress, and skill acquisition with detailed analytics</p>
                             </div>
                         </div>
                         <div class="portal-feature">
                             <i class="fas fa-calendar-alt"></i>
                             <div>
-                                <h4>Activity Calendar</h4>
-                                <p>View daily activities, special events, and important dates</p>
+                                <h4>Interactive Calendar</h4>
+                                <p>View daily activities, special events, field trips, and important dates with reminders</p>
                             </div>
                         </div>
                         <div class="portal-feature">
                             <i class="fas fa-file-alt"></i>
                             <div>
                                 <h4>Digital Reports</h4>
-                                <p>Access progress reports and assessment documentation</p>
+                                <p>Access comprehensive progress reports, assessment documentation, and teacher observations</p>
                             </div>
                         </div>
                         <div class="portal-feature">
                             <i class="fas fa-images"></i>
                             <div>
                                 <h4>Photo Gallery</h4>
-                                <p>View photos and videos of your child's daily experiences</p>
+                                <p>View photos and videos capturing your child's daily experiences, projects, and special moments</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="portal-login">
+                <div class="portal-login animate-fade-in-up" style="animation-delay: 0.2s;">
                     <h3>Portal Login</h3>
-                    <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.9;">Access your child's information with your secure credentials</p>
+                    <p style="text-align: center; margin-bottom: 1.5rem; opacity: 0.9;">Access your child's personalized information with your secure credentials</p>
                     
                     <form id="portalLoginForm">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" id="username" name="username" required>
+                            <input type="text" id="username" name="username" required placeholder="Enter your username">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" id="password" name="password" required>
+                            <input type="password" id="password" name="password" required placeholder="Enter your password">
                         </div>
-                        <button type="submit" class="btn" style="width: 100%; background: var(--light-accent); color: var(--primary-dark);">Login to Portal</button>
+                        <button type="submit" class="btn" style="width: 100%; background: var(--accent); color: var(--white);">Login to Portal</button>
                     </form>
                     
                     <div style="text-align: center; margin-top: 1rem;">
-                        <a href="#" style="color: var(--light-accent); font-size: 0.9rem;">Forgot your credentials?</a>
+                        <a href="#" style="color: var(--light-accent); font-size: 0.9rem; text-decoration: none;">Forgot your credentials?</a>
                     </div>
                     
-                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 4px;">
-                        <p style="font-size: 0.9rem; text-align: center; opacity: 0.9;">
-                            <i class="fas fa-info-circle"></i> Don't have an account? Your login credentials will be emailed after application approval.
+                    <div style="margin-top: 1.5rem; padding: 1.2rem; background: rgba(255,255,255,0.1); border-radius: var(--radius-sm);">
+                        <p style="font-size: 0.9rem; text-align: center; opacity: 0.9; line-height: 1.6;">
+                            <i class="fas fa-info-circle" style="color: var(--accent); margin-right: 0.5rem;"></i> 
+                            Don't have an account? Your secure login credentials will be emailed after application approval.
                         </p>
                     </div>
                 </div>
@@ -1391,7 +1744,7 @@
     <section class="dashboard-preview section-padding">
         <div class="container">
             <h2 class="section-title">Portal Dashboard Preview</h2>
-            <p class="section-subtitle">Explore the features available in our parent portal</p>
+            <p class="section-subtitle">Explore the comprehensive features available in our intuitive parent portal</p>
             
             <div class="dashboard-tabs">
                 <button class="dashboard-tab active" data-tab="performance">Performance</button>
@@ -1403,27 +1756,27 @@
             <div class="dashboard-content">
                 <!-- Performance Panel -->
                 <div class="dashboard-panel active" id="performance-panel">
-                    <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Development Progress</h3>
+                    <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Development Progress Overview</h3>
                     <div class="performance-grid">
                         <div class="performance-card">
                             <h4>Social & Emotional</h4>
                             <div class="performance-value">A+</div>
-                            <p>Excellent peer interaction and self-regulation</p>
+                            <p>Excellent peer interaction, empathy development, and self-regulation skills</p>
                         </div>
                         <div class="performance-card">
                             <h4>Language & Literacy</h4>
                             <div class="performance-value">A</div>
-                            <p>Strong vocabulary and communication skills</p>
+                            <p>Strong vocabulary expansion, communication skills, and early reading readiness</p>
                         </div>
                         <div class="performance-card">
                             <h4>Cognitive Development</h4>
                             <div class="performance-value">A-</div>
-                            <p>Good problem-solving and critical thinking</p>
+                            <p>Advanced problem-solving, critical thinking, and pattern recognition abilities</p>
                         </div>
                         <div class="performance-card">
                             <h4>Physical Development</h4>
                             <div class="performance-value">A</div>
-                            <p>Age-appropriate fine and gross motor skills</p>
+                            <p>Age-appropriate fine and gross motor skills with excellent coordination</p>
                         </div>
                     </div>
                 </div>
@@ -1438,8 +1791,8 @@
                             </div>
                             <div>
                                 <h4>Color Mixing Exploration</h4>
-                                <p>Children experimented with primary colors to create secondary colors</p>
-                                <small>Completed: Nov 26, 2023</small>
+                                <p>Children experimented with primary colors using natural pigments to create secondary colors and discuss color theory</p>
+                                <small>Completed: November 26, 2023</small>
                             </div>
                         </div>
                         <div class="activity-card">
@@ -1448,8 +1801,8 @@
                             </div>
                             <div>
                                 <h4>Rhythm & Movement</h4>
-                                <p>Exploring different tempos and patterns through music and dance</p>
-                                <small>Completed: Nov 25, 2023</small>
+                                <p>Exploring different tempos, patterns, and cultural rhythms through music, dance, and percussion instruments</p>
+                                <small>Completed: November 25, 2023</small>
                             </div>
                         </div>
                         <div class="activity-card">
@@ -1458,8 +1811,8 @@
                             </div>
                             <div>
                                 <h4>Garden Science</h4>
-                                <p>Planting seeds and learning about plant life cycles</p>
-                                <small>Completed: Nov 24, 2023</small>
+                                <p>Planting organic seeds, observing germination, and learning about plant life cycles in our classroom garden</p>
+                                <small>Completed: November 24, 2023</small>
                             </div>
                         </div>
                     </div>
@@ -1467,7 +1820,7 @@
                 
                 <!-- Reports Panel -->
                 <div class="dashboard-panel" id="reports-panel">
-                    <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Progress Reports</h3>
+                    <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Progress Reports & Documentation</h3>
                     <div class="activity-grid">
                         <div class="activity-card">
                             <div class="activity-icon">
@@ -1475,8 +1828,8 @@
                             </div>
                             <div>
                                 <h4>Fall 2023 Progress Report</h4>
-                                <p>Comprehensive assessment covering all developmental domains</p>
-                                <a href="#" style="color: var(--accent); font-weight: 500;">Download PDF</a>
+                                <p>Comprehensive assessment covering all developmental domains with teacher observations and recommendations</p>
+                                <a href="#" style="color: var(--accent); font-weight: 500; text-decoration: none;">Download PDF Report</a>
                             </div>
                         </div>
                         <div class="activity-card">
@@ -1485,8 +1838,18 @@
                             </div>
                             <div>
                                 <h4>Mid-Term Evaluation</h4>
-                                <p>Progress tracking and recommendations for continued growth</p>
-                                <a href="#" style="color: var(--accent); font-weight: 500;">Download PDF</a>
+                                <p>Progress tracking analysis, skill acquisition timeline, and personalized recommendations for continued growth</p>
+                                <a href="#" style="color: var(--accent); font-weight: 500; text-decoration: none;">Download PDF Report</a>
+                            </div>
+                        </div>
+                        <div class="activity-card">
+                            <div class="activity-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div>
+                                <h4>Special Achievements</h4>
+                                <p>Documentation of special accomplishments, milestones reached, and certificates of achievement</p>
+                                <a href="#" style="color: var(--accent); font-weight: 500; text-decoration: none;">View Certificates</a>
                             </div>
                         </div>
                     </div>
@@ -1494,19 +1857,19 @@
                 
                 <!-- Gallery Panel -->
                 <div class="dashboard-panel" id="gallery-panel">
-                    <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Classroom Moments</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem;">
-                        <div style="height: 150px; background: var(--light); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
-                            <i class="fas fa-image fa-2x"></i>
+                    <h3 style="color: var(--primary-dark); margin-bottom: 1.5rem;">Classroom Moments & Memories</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.5rem;">
+                        <div style="height: 180px; background: linear-gradient(135deg, var(--light), var(--light-accent)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--text-light); overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1516627145497-ae69578f5d26?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Children playing">
                         </div>
-                        <div style="height: 150px; background: var(--light); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
-                            <i class="fas fa-image fa-2x"></i>
+                        <div style="height: 180px; background: linear-gradient(135deg, var(--light), var(--light-accent)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--text-light); overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Classroom activity">
                         </div>
-                        <div style="height: 150px; background: var(--light); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
-                            <i class="fas fa-image fa-2x"></i>
+                        <div style="height: 180px; background: linear-gradient(135deg, var(--light), var(--light-accent)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--text-light); overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Art project">
                         </div>
-                        <div style="height: 150px; background: var(--light); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
-                            <i class="fas fa-image fa-2x"></i>
+                        <div style="height: 180px; background: linear-gradient(135deg, var(--light), var(--light-accent)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--text-light); overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover;" alt="Outdoor play">
                         </div>
                     </div>
                 </div>
@@ -1518,24 +1881,24 @@
     <section class="testimonials section-padding">
         <div class="container">
             <h2 class="section-title">Parent Testimonials</h2>
-            <p class="section-subtitle">Hear from families in our preschool community</p>
+            <p class="section-subtitle">Hear from families in our preschool community about their experiences</p>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"The parent portal has been incredible for staying connected to our daughter's daily experiences. We love seeing her progress and activities throughout the day."</p>
+                <div class="testimonial-card animate-fade-in-up">
+                    <p class="testimonial-text">"The parent portal has been incredible for staying connected to our daughter's daily experiences. We love seeing her progress and activities throughout the day. The transparency and communication are exceptional."</p>
                     <div class="testimonial-author">
-                        <span>- Michael & Sarah Johnson</span>
+                        <span>- Mrs & Mr Fernando</span>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Apple Tree Tots has exceeded our expectations. The Montessori approach combined with their innovative methods has helped our son thrive both academically and socially."</p>
+                <div class="testimonial-card animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <p class="testimonial-text">"Apple Tree Tots has exceeded our expectations. The Montessori approach combined with their innovative methods has helped our son thrive both academically and socially. The environment is nurturing yet challenging."</p>
                     <div class="testimonial-author">
                         <span>- The Rodriguez Family</span>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"The teachers are exceptional - so attentive and caring. The portal gives us peace of mind knowing we can see what our child is learning and how they're developing."</p>
+                <div class="testimonial-card animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <p class="testimonial-text">"The teachers are exceptional - so attentive, caring, and knowledgeable. The portal gives us peace of mind knowing we can see what our child is learning and how they're developing. It's truly a partnership."</p>
                     <div class="testimonial-author">
-                        <span>- Priya & Raj Patel</span>
+                        <span>- Priya & Raj Ekanayake</span>
                     </div>
                 </div>
             </div>
@@ -1546,13 +1909,13 @@
     <section class="contact section-padding" id="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">We're here to answer your questions and schedule your visit</p>
+            <p class="section-subtitle">We're here to answer your questions and welcome you to our learning community</p>
             <div class="contact-content">
-                <div class="contact-info">
+                <div class="contact-info animate-fade-in-up">
                     <h2>Get In Touch</h2>
-                    <p>Have questions about our programs or ready to schedule a tour? Our admissions team is here to help you every step of the way.</p>
+                    <p>Have questions about our programs or ready to schedule a personal tour? Our dedicated admissions team is here to guide you every step of the way on your educational journey.</p>
                     
-                    <div class="phone-number">
+                    <div class="phone-number animate-float">
                         <a href="tel:0743431488">(074) 343-1488</a>
                     </div>
                     
@@ -1567,7 +1930,7 @@
                         </div>
                         <div class="contact-detail">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>123 Education Lane, Learning City, LC 12345</span>
+                            <span>Ahangama ,Sri Lanka</span>
                         </div>
                     </div>
                     
@@ -1578,12 +1941,13 @@
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="contact-map">
-                    <!-- Map would be embedded here -->
-                    <div style="width: 100%; height: 100%; background: var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-light);">
-                        <div style="text-align: center;">
+                <div class="contact-map animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Preschool Campus">
+                    <div class="map-overlay">
+                        <div style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.9); border-radius: var(--radius); box-shadow: var(--shadow);">
                             <i class="fas fa-map-marked-alt fa-3x" style="margin-bottom: 1rem; color: var(--secondary);"></i>
-                            <p>Interactive Campus Map</p>
+                            <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">Visit Our Campus</h4>
+                            <p style="color: var(--text-light);">Schedule a personal tour to experience our beautiful learning environment</p>
                         </div>
                     </div>
                 </div>
@@ -1601,47 +1965,48 @@
                         <div class="logo-line2" style="font-size: 1.3rem; color: white;">TOTS</div>
                         <div class="logo-line3" style="font-size: 0.8rem; color: var(--secondary);">PRESCHOOL</div>
                     </div>
-                    <p style="margin-top: 1rem; color: #ccc; line-height: 1.6;">Providing exceptional early childhood education through Montessori principles and innovative teaching methods since 2010.</p>
+                    <p style="margin-top: 1.5rem; color: #ccc; line-height: 1.6; font-size: 0.95rem;">Providing exceptional early childhood education through authentic Montessori principles and innovative teaching methods since 2010. Nurturing curious minds in a nature-inspired environment.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#programs">Programs</a></li>
-                        <li><a href="#registration">Admissions</a></li>
-                        <li><a href="#portal">Parent Portal</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#programs"><i class="fas fa-chevron-right"></i> Programs</a></li>
+                        <li><a href="#registration"><i class="fas fa-chevron-right"></i> Admissions</a></li>
+                        <li><a href="#portal"><i class="fas fa-chevron-right"></i> Parent Portal</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Programs</h3>
+                    <h3>Our Programs</h3>
                     <ul>
-                        <li><a href="#">Toddler Program</a></li>
-                        <li><a href="#">Primary Program</a></li>
-                        <li><a href="#">Enrichment Programs</a></li>
-                        <li><a href="#">Summer Camp</a></li>
-                        <li><a href="#">Extended Care</a></li>
+                        <li><a href="#"><i class="fas fa-seedling"></i> Seedlings Program</a></li>
+                        <li><a href="#"><i class="fas fa-tree"></i> Primary Program</a></li>
+                        <li><a href="#"><i class="fas fa-star"></i> Enrichment Programs</a></li>
+                        <li><a href="#"><i class="fas fa-sun"></i> Summer Camp</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Extended Care</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Info</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt" style="color: var(--light-accent);"></i> 123 Education Lane, Learning City</li>
-                        <li><i class="fas fa-phone" style="color: var(--light-accent);"></i> (074) 343-1488</li>
-                        <li><i class="fas fa-envelope" style="color: var(--light-accent);"></i> info@appletreetots.com</li>
-                        <li><i class="fas fa-clock" style="color: var(--light-accent);"></i> Mon-Fri: 7:30AM - 5:30PM</li>
+                        <li><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> Ahangama, Sri Lanka</li>
+                        <li><i class="fas fa-phone" style="color: var(--accent);"></i> (074) 343-1488</li>
+                        <li><i class="fas fa-envelope" style="color: var(--accent);"></i> info@appletreetots.com</li>
+                        <li><i class="fas fa-clock" style="color: var(--accent);"></i> Mon-Fri: 7:30AM - 5:30PM</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Apple Tree Tots Preschool. All rights reserved. | <a href="#" style="color: #aaa;">Privacy Policy</a> | <a href="#" style="color: #aaa;">Terms of Service</a></p>
+                <p>&copy; 2026 Apple Tree Tots Preschool. All rights reserved. | <a href="#" style="color: #aaa; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: #aaa; text-decoration: none;">Terms of Service</a></p>
             </div>
         </div>
     </footer>
@@ -1653,27 +2018,28 @@
                 <i class="fas fa-times"></i>
             </button>
             <h3>Parent Portal Login</h3>
-            <p style="color: var(--text-light); margin-bottom: 1.5rem;">Enter your credentials to access your child's information</p>
+            <p style="color: var(--text-light); margin-bottom: 1.5rem;">Enter your secure credentials to access your child's comprehensive information</p>
             
             <form id="modalLoginForm">
                 <div class="form-group">
                     <label for="modalUsername">Username</label>
-                    <input type="text" id="modalUsername" name="username" required>
+                    <input type="text" id="modalUsername" name="username" required placeholder="Enter your username">
                 </div>
                 <div class="form-group">
                     <label for="modalPassword">Password</label>
-                    <input type="password" id="modalPassword" name="password" required>
+                    <input type="password" id="modalPassword" name="password" required placeholder="Enter your password">
                 </div>
-                <button type="submit" class="btn" style="width: 100%;">Login</button>
+                <button type="submit" class="btn" style="width: 100%;">Login to Portal</button>
             </form>
             
             <div style="text-align: center; margin-top: 1rem;">
-                <a href="#" style="color: var(--accent); font-size: 0.9rem;">Forgot your password?</a>
+                <a href="#" style="color: var(--accent); font-size: 0.9rem; text-decoration: none;">Forgot your password?</a>
             </div>
             
-            <div style="margin-top: 1.5rem; padding: 1rem; background: var(--light); border-radius: 4px;">
-                <p style="font-size: 0.9rem; text-align: center; color: var(--text-light);">
-                    <i class="fas fa-info-circle"></i> Don't have an account? Your credentials will be emailed after application approval.
+            <div style="margin-top: 1.5rem; padding: 1.2rem; background: var(--light); border-radius: var(--radius-sm);">
+                <p style="font-size: 0.9rem; text-align: center; color: var(--text-light); line-height: 1.6;">
+                    <i class="fas fa-info-circle" style="color: var(--accent); margin-right: 0.5rem;"></i> 
+                    Don't have an account? Your secure login credentials will be emailed after your application is approved.
                 </p>
             </div>
         </div>
@@ -1772,10 +2138,10 @@
             submitBtn.disabled = true;
             formStatus.style.display = 'none';
             
-            // Simulate form submission (in a real implementation, this would send to a server)
+            // Simulate form submission
             setTimeout(() => {
                 // Success response
-                formStatus.textContent = 'Thank you! Your application has been submitted. Our admissions team will review it and contact you within 2 business days. Upon approval, you will receive your parent portal credentials via email.';
+                formStatus.textContent = 'Thank you! Your application has been submitted successfully. Our admissions team will personally review it and contact you within 2 business days. Upon approval, you will receive your secure parent portal credentials via email.';
                 formStatus.className = 'form-status success';
                 formStatus.style.display = 'block';
                 this.reset();
@@ -1824,6 +2190,25 @@
                     document.body.style.overflow = '';
                 }
             });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .program-card, .testimonial-card, .about-text, .about-image, .portal-info, .portal-login, .contact-info, .contact-map').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
